@@ -1,11 +1,20 @@
 import express from "express";
 import noteRoutes from './routes/noteRoute.js'
+import { connectDB } from "./config/db.js";
+import dotenv from 'dotenv';
+
+
+dotenv.config()
+
+const PORT = process.env.PORT || 5001;
+
 const app = express();
+
+connectDB()
 
 app.use("/api/notes", noteRoutes)
 
-app.listen(6000, ()=>{
-    console.log("Server is running on PORT 6000")
+app.listen(PORT, ()=>{
+    console.log("Server is running on PORT:", PORT)
 })
 
-// mongodb+srv://thefearfulsecrets_db_user:<db_password>@notesapi.rsll6om.mongodb.net/?appName=notesAPI
