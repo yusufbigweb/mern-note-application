@@ -1,4 +1,3 @@
-# mern-note-application
 # 📝 MERN Note Application
 
 A simple **MERN Stack Note Taking Application** that allows users to create, read, update, and delete notes.  
