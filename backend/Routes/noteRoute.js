@@ -1,11 +1,14 @@
 import express from "express"
+import { CreateNote, deleteNote, getAllNote, updateNote } from "../Controller/noteController";
 const router = express.Router();
 
-router.get("/", (res, req)=>{
-    res.status(200).send("you just fetching the notes")
-})
+router.get("/", getAllNote)
 
+router.post("/api/notes/:id", CreateNote)
 
+router.put("/api/notes/:id", updateNote)
+
+router.delete("/api/notes", deleteNote)
 
 
 // app.get("/api/notes", (req, res)=>{
