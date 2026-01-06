@@ -12,7 +12,11 @@ const app = express();
 
 connectDB()
 
-app.use("/api/notes", noteRoutes)
+// middleware
+app.use(express.json())
+
+
+app.use("/api/notes", noteRoutes) 
 
 app.listen(PORT, ()=>{
     console.log("Server is running on PORT:", PORT)

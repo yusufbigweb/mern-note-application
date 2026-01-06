@@ -3,12 +3,13 @@ import { CreateNote, deleteNote, getAllNote, updateNote } from "../controller/no
 const router = express.Router();
 
 router.get("/", getAllNote)
+router.get("/id", getAllNote)
 
-router.post("/api/notes/:id", CreateNote)
+router.post("/", CreateNote)
 
-router.put("/api/notes/:id", updateNote)
+router.put("/id", updateNote)
 
-router.delete("/api/notes", deleteNote)
+router.delete("/id", deleteNote)
 
 
 export default router
