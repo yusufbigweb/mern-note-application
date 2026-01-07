@@ -1,5 +1,7 @@
 import Note from '../models/Note.js'
 
+
+// Api showing in this function
 export async function getAllNote (req, res){
     try{
         const notes = await Note.find()
@@ -9,7 +11,7 @@ export async function getAllNote (req, res){
         res.status(500).json({message: "Internal server error"})
     }
 }
-
+//  Create API Using this function 
 export async function CreateNote(req, res){
     try{
         const {title, content} = req.body;
@@ -22,11 +24,49 @@ export async function CreateNote(req, res){
         res.status(500).json({message: "Internal server error"})
     }
 }
+// Single API Item Viwe Using this function
+export async function getNoteById(req, res){
+    try{
+        const note = await Note.findById(req.params.id);
+        if(!note) return  res.status(404).json({message: "Note not found"});
+        res.json(note)
 
-export function updateNote(req,res){
-    res.status(200).json({message: "Note Update successfully"})
+    }catch(erorr){
+
+    }
 }
 
-export function deleteNote(req, res){
-    res.status(200).json({message: "Note Deleted Successfully"})
+// API Update Using this function
+export async function updateNote(req,res){
+    
+    try{
+    const {title, content} = req.body;
+    const updatedNote =  await Note.findByIdAndUpdate(
+        req.params.id,
+        {title, content},
+        {
+            new: true,
+        }
+    );
+
+    if(!updatedNote) return res.status(404).json({message: "Note not found"})
+
+        res.status(200).json(updatedNote)
+        
+    }catch(error){
+        console.error("Error in CreateNote UpdateNote", error)
+        res.status(500).json({message: "Internal server error"})
+    }
 }
+
+// Delete API Using this function
+export async function deleteNote(req, res){
+        try{
+            const deletedNote = await Note.findByIdAndDelete(req.params.id)
+            if(!deleteNote) return res.status(404).json({message:"Note not found"})
+            res.status(200).json({message: "Note deleted sucessfully"})
+        }catch(error){
+            console.error("Error in CreateNote deleteNote", error)
+            res.status(500).json({message: "Internal server error"})
+        }
+}                                                         
