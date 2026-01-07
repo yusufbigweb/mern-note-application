@@ -3,7 +3,7 @@
 A simple **MERN Stack Note Taking Application** that allows users to create, read, update, and delete notes.  
 Built to practice full-stack development using MongoDB, Express.js, React.js, and Node.js.
 
-//https://youtu.be/F9gB5b4jgOI?t=4795
+//https://youtu.be/F9gB5b4jgOI?t=8266
 
 ---
 

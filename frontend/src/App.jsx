@@ -5,8 +5,7 @@ import CreatePage from './pages/CreatePage';
 import NoteDetailPage from './pages/NoteDetailPage';
 function App() {
   return (
-    <div>
-      <button className='btn btn-outline'>click</button>
+    <div data-theme="forest" className='h-[100vh]'>
       <Routes>
         <Route path='/' element={<HomePage/>}></Route>
         <Route path='/create' element={<CreatePage/>}></Route>
